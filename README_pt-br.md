@@ -10,7 +10,7 @@
 - Laços de repetição
 - Arrays
 - Funções
-- Dom e seletores
+- DOM e seletores
 - Criar elementos de forma dinâmica
 - Eventos
 
