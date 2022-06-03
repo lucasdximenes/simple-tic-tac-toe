@@ -8,9 +8,9 @@
 
 - Programming logic
 - Repeat loops
-- arrays
+- Arrays
 - Functions
-- Gift and selectors
+- DOM and selectors
 - Create elements dynamically
 - Events
 
