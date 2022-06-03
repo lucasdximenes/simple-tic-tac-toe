@@ -10,9 +10,9 @@ const combinacoes = [
 ];
 
 const playerXSymbol = "X";
-let playerXCells = [];
+let playerXPlays = 0;
 const playerOSymbol = "O";
-let playerOCells = [];
+let playerOPlays = 0;
 let isPlayerX = true;
 
 // - Crie uma função que receba de quem foi o turno e deve checar se houve algum ganhador
@@ -21,15 +21,20 @@ let isPlayerX = true;
 // - Somar um ponto para cada posição que conter o texto do jogador da vez dentro do array
 // - Checar se os pontos são maiores ou iguais a 3
 // - Alterar texto com o id player para o jogador ganhador caso tenha feito 3 pontos
+// - Caso nenhum jogador tenha feito 3 pontos e ja tenha checado todas as combinações, deve-se alterar o texto do player para "Deu velha"
 // #3
 function checkWinner() {
   for (let i = 0; i < combinacoes.length; i += 1) {
     let pointsX = 0;
     let pointsY = 0;
     for (let j = 0; j < combinacoes[i].length; j += 1) {
-      if (document.getElementById(combinacoes[i][j]).innerText === playerXSymbol) {
+      if (
+        document.getElementById(combinacoes[i][j]).innerText === playerXSymbol
+      ) {
         pointsX += 1;
-      } else if (document.getElementById(combinacoes[i][j]).innerText === playerOSymbol) {
+      } else if (
+        document.getElementById(combinacoes[i][j]).innerText === playerOSymbol
+      ) {
         pointsY += 1;
       }
     }
@@ -39,6 +44,7 @@ function checkWinner() {
         const divCells = document.getElementById(j);
         // eslint-disable-next-line no-use-before-define
         divCells.removeEventListener("click", play);
+        return;
       }
     } else if (pointsY === 3) {
       document.getElementById("player").innerText = "Player O ganhou";
@@ -46,8 +52,12 @@ function checkWinner() {
         const divCells = document.getElementById(k);
         // eslint-disable-next-line no-use-before-define
         divCells.removeEventListener("click", play);
+        return;
       }
     }
+  }
+  if (playerXPlays + playerOPlays === 9) {
+    document.getElementById("player").innerText = "Deu velha";
   }
 }
 
@@ -67,7 +77,7 @@ function play(event) {
   if (isPlayerX !== true) {
     playerID.innerHTML = "Vez do jogador X";
     cellID.innerHTML = playerOSymbol;
-    playerOCells.push(clickedCell);
+    playerOPlays += 1;
     // remove event listener from clicked cell
     cellID.removeEventListener("click", play);
     // console.log("Player O", playerOCells);
@@ -76,7 +86,7 @@ function play(event) {
   } else {
     playerID.innerHTML = "Vez do jogador O";
     cellID.innerHTML = playerXSymbol;
-    playerXCells.push(clickedCell);
+    playerXPlays += 1;
     // remove event listener from clicked cell
     cellID.removeEventListener("click", play);
     // console.log("player X", playerXCells);
@@ -118,8 +128,8 @@ function reset() {
     divCells.addEventListener("click", play);
   }
   playerID.innerHTML = "Vez do jogador X";
-  playerXCells = [];
-  playerOCells = [];
+  playerXPlays = 0;
+  playerOPlays = 0;
   isPlayerX = true;
 }
 resetButton.addEventListener("click", reset);
