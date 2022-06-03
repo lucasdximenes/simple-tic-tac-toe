@@ -39,7 +39,7 @@ function checkWinner() {
       }
     }
     if (pointsX === 3) {
-      document.getElementById("player").innerText = "Player X ganhou";
+      document.getElementById("player").innerText = "Jogador X ganhou";
       for (let j = 0; j <= 8; j += 1) {
         const divCells = document.getElementById(j);
         // eslint-disable-next-line no-use-before-define
@@ -47,7 +47,7 @@ function checkWinner() {
       }
       return;
     } else if (pointsY === 3) {
-      document.getElementById("player").innerText = "Player O ganhou";
+      document.getElementById("player").innerText = "Jogador O ganhou";
       for (let k = 0; k <= 8; k += 1) {
         const divCells = document.getElementById(k);
         // eslint-disable-next-line no-use-before-define
