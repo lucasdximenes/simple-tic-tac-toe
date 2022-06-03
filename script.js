@@ -44,16 +44,16 @@ function checkWinner() {
         const divCells = document.getElementById(j);
         // eslint-disable-next-line no-use-before-define
         divCells.removeEventListener("click", play);
-        return;
       }
+      return;
     } else if (pointsY === 3) {
       document.getElementById("player").innerText = "Player O ganhou";
       for (let k = 0; k <= 8; k += 1) {
         const divCells = document.getElementById(k);
         // eslint-disable-next-line no-use-before-define
         divCells.removeEventListener("click", play);
-        return;
       }
+      return;
     }
   }
   if (playerXPlays + playerOPlays === 9) {
