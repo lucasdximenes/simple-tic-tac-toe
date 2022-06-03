@@ -2,6 +2,8 @@
 
 - Bem vindo ao repositório do jogo da velha, desenvolvido por [Lucas Ximenes](https://www.linkedin.com/in/lucasdximenes/). Olhe outros projetos incríveis no meu [repositório](https://github.com/lucasdximenes).
 
+> ## [Live version](https://lucasdximenes.github.io/other/dojo/dojo-tic-tac-toe/)
+
 ---
 
 ## Utilizamos os seguintes conhecimentos ao desenvolver este projeto:
